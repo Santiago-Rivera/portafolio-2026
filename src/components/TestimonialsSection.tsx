@@ -1,6 +1,6 @@
 import AnimatedSection from "./AnimatedSection";
 import { testimonials } from "@/data/testimonials";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Quote } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -25,6 +25,7 @@ const TestimonialsSection = () => (
             <p className="mb-6 text-sm leading-relaxed text-muted-foreground italic">"{t.text}"</p>
             <div className="flex items-center gap-3">
               <Avatar className="h-10 w-10 border-2 border-primary/20 transition-colors duration-300 group-hover:border-primary/50">
+                <AvatarImage src={t.image} alt={t.name} />
                 <AvatarFallback className="bg-primary/10 text-xs font-semibold text-primary">{t.avatar}</AvatarFallback>
               </Avatar>
               <div>
