@@ -1,5 +1,5 @@
 export const personalInfo = {
-  name: "Tu Nombre",
+  name: "Santiago Rivera",
   title: "Desarrollador Web & Móvil",
   subtitle: "Creo experiencias digitales que combinan diseño elegante con código limpio.",
   email: "tu@email.com",
