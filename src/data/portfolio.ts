@@ -2,10 +2,9 @@ export const personalInfo = {
   name: "Santiago Rivera",
   title: "Desarrollador Web & Móvil",
   subtitle: "Creo experiencias digitales que combinan diseño elegante con código limpio.",
-  email: "tu@email.com",
-  github: "https://github.com/tuusuario",
-  linkedin: "https://linkedin.com/in/tuusuario",
-  twitter: "https://twitter.com/tuusuario",
+  email: "santiagodeveloperfullstack@outlook.com",
+  github: "https://github.com/Santiago-Rivera",
+  linkedin: "https://linkedin.com/in/santiago-rivera-rivera",
 };
 
 export const aboutText = `Soy un desarrollador apasionado por crear aplicaciones web y móviles que resuelvan problemas reales. 
@@ -14,7 +13,7 @@ Cuando no estoy programando, me gusta explorar nuevas herramientas y contribuir 
 
 export const skills = {
   Frontend: ["React", "TypeScript", "Tailwind CSS", "Next.js", "HTML/CSS"],
-  Backend: ["Node.js", "Express", "PostgreSQL", "Firebase", "REST APIs"],
+  Backend: ["Node.js", "Express", "PostgreSQL", "Supabase", "REST APIs"],
   Móvil: ["React Native", "Flutter", "Expo"],
   Herramientas: ["Git", "Docker", "Figma", "VS Code", "GitHub Actions"],
 };
