@@ -27,10 +27,10 @@ const HeroSection = () => {
           </div>
 
           <div className="mt-8 flex items-center justify-center gap-4">
-            <a href="https://www.linkedin.com/in/santiago-rivera-rivera" target="_blank" rel="noopener noreferrer" className="text-muted-foreground transition-colors hover:text-foreground">
+            <a href="https://github.com/Santiago-Rivera" target="_blank" rel="noopener noreferrer" className="text-muted-foreground transition-colors hover:text-foreground">
               <Github size={20} />
             </a>
-            <a href="https://github.com/Santiago-Rivera" target="_blank" rel="noopener noreferrer" className="text-muted-foreground transition-colors hover:text-foreground">
+            <a href="https://www.linkedin.com/in/santiago-rivera-rivera" target="_blank" rel="noopener noreferrer" className="text-muted-foreground transition-colors hover:text-foreground">
               <Linkedin size={20} />
             </a>
           </div>
