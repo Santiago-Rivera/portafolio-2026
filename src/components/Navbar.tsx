@@ -1,6 +1,7 @@
-import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Menu, X, Moon, Sun } from "lucide-react";
 import { personalInfo } from "@/data/portfolio";
+import { Button } from "@/components/ui/button";
 
 const links = [
   { label: "Inicio", href: "#inicio" },
@@ -13,6 +14,20 @@ const links = [
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [dark, setDark] = useState(() => {
+    if (typeof window !== "undefined") {
+      return document.documentElement.classList.contains("dark");
+    }
+    return false;
+  });
+
+  useEffect(() => {
+    if (dark) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [dark]);
 
   const scrollTo = (href: string) => {
     setOpen(false);
@@ -27,20 +42,30 @@ const Navbar = () => {
         </a>
 
         {/* Desktop */}
-        <ul className="hidden gap-8 md:flex">
-          {links.map((l) => (
-            <li key={l.href}>
-              <button onClick={() => scrollTo(l.href)} className="text-sm text-muted-foreground transition-colors hover:text-foreground">
-                {l.label}
-              </button>
-            </li>
-          ))}
-        </ul>
+        <div className="hidden items-center gap-8 md:flex">
+          <ul className="flex gap-8">
+            {links.map((l) => (
+              <li key={l.href}>
+                <button onClick={() => scrollTo(l.href)} className="text-sm text-muted-foreground transition-colors hover:text-foreground">
+                  {l.label}
+                </button>
+              </li>
+            ))}
+          </ul>
+          <Button variant="ghost" size="icon" onClick={() => setDark(!dark)} aria-label="Toggle theme">
+            {dark ? <Sun size={18} /> : <Moon size={18} />}
+          </Button>
+        </div>
 
         {/* Mobile toggle */}
-        <button className="md:hidden text-foreground" onClick={() => setOpen(!open)} aria-label="Menu">
-          {open ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        <div className="flex items-center gap-2 md:hidden">
+          <Button variant="ghost" size="icon" onClick={() => setDark(!dark)} aria-label="Toggle theme">
+            {dark ? <Sun size={18} /> : <Moon size={18} />}
+          </Button>
+          <button className="text-foreground" onClick={() => setOpen(!open)} aria-label="Menu">
+            {open ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}

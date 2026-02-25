@@ -4,17 +4,32 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { personalInfo } from "@/data/portfolio";
-import { Github, Linkedin, Mail, Send } from "lucide-react";
+import { Github, Linkedin, Mail, Send, Loader2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 const ContactSection = () => {
   const { toast } = useToast();
   const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({ title: "¡Mensaje enviado!", description: "Gracias por contactarme. Te responderé pronto." });
-    setForm({ name: "", email: "", message: "" });
+    setLoading(true);
+    try {
+      const { error } = await supabase.from("contact_messages").insert({
+        name: form.name,
+        email: form.email,
+        message: form.message,
+      });
+      if (error) throw error;
+      toast({ title: "¡Mensaje enviado!", description: "Gracias por contactarme. Te responderé pronto." });
+      setForm({ name: "", email: "", message: "" });
+    } catch {
+      toast({ title: "Error", description: "No se pudo enviar el mensaje. Intenta de nuevo.", variant: "destructive" });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -32,8 +47,9 @@ const ContactSection = () => {
             <Input type="email" placeholder="Tu email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} required />
           </div>
           <Textarea placeholder="Tu mensaje..." rows={5} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} required />
-          <Button type="submit" className="w-full sm:w-auto">
-            <Send size={16} /> Enviar Mensaje
+          <Button type="submit" className="w-full sm:w-auto" disabled={loading}>
+            {loading ? <Loader2 size={16} className="animate-spin" /> : <Send size={16} />}
+            {loading ? "Enviando..." : "Enviar Mensaje"}
           </Button>
         </form>
 
