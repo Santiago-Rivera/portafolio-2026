@@ -1,6 +1,6 @@
 import { MessageCircle } from "lucide-react";
 
-const WHATSAPP_NUMBER = "521234567890"; // Cambia por tu número con código de país
+const WHATSAPP_NUMBER = "593995303033"; // Cambia por tu número con código de país
 const WHATSAPP_MESSAGE = "¡Hola! Vi tu portafolio y me gustaría hablar contigo.";
 
 const WhatsAppButton = () => (
