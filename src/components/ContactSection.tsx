@@ -17,12 +17,20 @@ const ContactSection = () => {
     e.preventDefault();
     setLoading(true);
     try {
+      // Save to database
       const { error } = await supabase.from("contact_messages").insert({
         name: form.name,
         email: form.email,
         message: form.message,
       });
       if (error) throw error;
+
+      // Send email notification
+      const { error: emailError } = await supabase.functions.invoke("send-contact-email", {
+        body: { name: form.name, email: form.email, message: form.message },
+      });
+      if (emailError) console.error("Email error:", emailError);
+
       toast({ title: "¡Mensaje enviado!", description: "Gracias por contactarme. Te responderé pronto." });
       setForm({ name: "", email: "", message: "" });
     } catch {
