@@ -1,30 +1,64 @@
 import AnimatedSection from "./AnimatedSection";
 import { aboutText } from "@/data/portfolio";
-import { Code2, Smartphone, Lightbulb } from "lucide-react";
+import { motion } from "framer-motion";
 
-const highlights = [
-  { icon: Code2, label: "Aplicaciones Web" },
-  { icon: Smartphone, label: "Apps Móviles" },
-  { icon: Lightbulb, label: "Soluciones Creativas" },
+const stats = [
+  { value: "3+", label: "Años de experiencia" },
+  { value: "20+", label: "Proyectos entregados" },
+  { value: "100%", label: "Código limpio" },
 ];
 
 const AboutSection = () => (
-  <AnimatedSection id="sobre-mi" className="py-24 px-4">
-    <div className="container mx-auto max-w-4xl">
-      <h2 className="mb-2 text-center text-sm font-medium uppercase tracking-widest text-muted-foreground">Sobre Mí</h2>
-      <h3 className="mb-10 text-center text-3xl font-bold text-foreground sm:text-4xl">Conóceme un poco más</h3>
+  <AnimatedSection id="sobre-mi" className="py-28 px-6">
+    <div className="mx-auto max-w-5xl">
+      {/* Section header */}
+      <div className="mb-16 flex items-center gap-4">
+        <span className="section-label">Sobre mí</span>
+        <div className="h-px flex-1 bg-border" />
+        <span className="tag-number text-muted-foreground/50">01</span>
+      </div>
 
-      <p className="mx-auto mb-12 max-w-2xl text-center leading-relaxed text-muted-foreground">{aboutText}</p>
+      <div className="grid grid-cols-1 gap-16 lg:grid-cols-2">
+        {/* Left: text */}
+        <div>
+          <h2 className="mb-6 text-4xl font-bold leading-tight text-foreground sm:text-5xl">
+            Desarrollador con{" "}
+            <span className="text-gradient">pasión</span> por el detalle
+          </h2>
+          <p className="mb-6 text-base leading-relaxed text-muted-foreground">
+            {aboutText}
+          </p>
+          <p className="text-base leading-relaxed text-muted-foreground">
+            Me especializo en construir aplicaciones full-stack con foco en la experiencia de usuario,
+            rendimiento y código mantenible a largo plazo. Cada proyecto es una oportunidad de
+            aprender y crecer.
+          </p>
+        </div>
 
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
-        {highlights.map(({ icon: Icon, label }) => (
-          <div key={label} className="flex flex-col items-center gap-3 rounded-xl border border-border bg-card p-6 text-center">
-            <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
-              <Icon size={24} className="text-primary" />
-            </div>
-            <span className="text-sm font-medium text-foreground">{label}</span>
-          </div>
-        ))}
+        {/* Right: stats + visual */}
+        <div className="flex flex-col justify-center gap-6">
+          {stats.map((stat, i) => (
+            <motion.div
+              key={stat.label}
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.12, duration: 0.5 }}
+              className="group flex items-center gap-6 rounded-xl border border-border bg-card p-6 transition-all duration-300 hover:border-primary/30 hover:shadow-md"
+            >
+              <span
+                className="text-5xl font-extrabold tracking-tight text-gradient"
+                style={{ fontFamily: "'Syne', sans-serif" }}
+              >
+                {stat.value}
+              </span>
+              <div className="h-12 w-px bg-border" />
+              <p className="text-sm font-medium text-muted-foreground">
+                {stat.label}
+              </p>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </div>
   </AnimatedSection>
