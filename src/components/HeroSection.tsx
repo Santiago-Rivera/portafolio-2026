@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { ArrowDown, Github, Linkedin, ArrowUpRight } from "lucide-react";
 import { personalInfo } from "@/data/portfolio";
-import { motion } from "framer-motion";
+import { motion, easeInOut } from "framer-motion";
 
 const words = ["Interfaces", "Experiencias", "Productos", "Soluciones"];
 
@@ -41,7 +41,7 @@ const HeroSection = () => {
 
   const item = {
     hidden: { opacity: 0, y: 30 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] } },
+    show: { opacity: 1, y: 0, transition: { duration: 0.7, ease: easeInOut } },
   };
 
   return (
