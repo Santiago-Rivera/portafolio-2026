@@ -88,7 +88,7 @@ export const projects: Project[] = [
     image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600&h=400&fit=crop",
     technologies: ["React", "TypeScript", "Supabase", "Framer Motion"],
     type: "Web",
-    repoUrl: "https://github.com/Santiago-Rivera",
+    repoUrl: "https://santiagoriveraportafolio.lovable.app",
   },
   {
     title: "App de Clima",
