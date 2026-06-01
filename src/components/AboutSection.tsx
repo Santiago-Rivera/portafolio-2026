@@ -46,10 +46,7 @@ const AboutSection = () => (
               transition={{ delay: i * 0.12, duration: 0.5 }}
               className="group flex items-center gap-6 rounded-xl border border-border bg-card p-6 transition-all duration-300 hover:border-primary/30 hover:shadow-md"
             >
-              <span
-                className="text-5xl font-extrabold tracking-tight text-gradient"
-                style={{ fontFamily: "'Syne', sans-serif" }}
-              >
+              <span className="text-5xl font-extrabold tracking-tight text-gradient font-syne">
                 {stat.value}
               </span>
               <div className="h-12 w-px bg-border" />

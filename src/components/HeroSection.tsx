@@ -52,14 +52,7 @@ const HeroSection = () => {
       {/* Background elements */}
       <div className="pointer-events-none absolute inset-0">
         {/* Subtle grid */}
-        <div
-          className="absolute inset-0 opacity-[0.025] dark:opacity-[0.04]"
-          style={{
-            backgroundImage: `linear-gradient(hsl(var(--foreground)) 1px, transparent 1px),
-                              linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)`,
-            backgroundSize: "64px 64px",
-          }}
-        />
+        <div className="absolute inset-0 opacity-[0.025] dark:opacity-[0.04] hero-grid" />
         {/* Accent blob */}
         <div className="absolute right-[-10%] top-[10%] h-[500px] w-[500px] rounded-full bg-primary/5 blur-[120px]" />
         <div className="absolute bottom-[15%] left-[-5%] h-[300px] w-[300px] rounded-full bg-primary/4 blur-[80px]" />
@@ -90,10 +83,7 @@ const HeroSection = () => {
             Creo{" "}
             <span
               ref={wordRef}
-              className="text-gradient inline-block"
-              style={{
-                transition: "opacity 0.3s ease, transform 0.3s ease",
-              }}
+              className="text-gradient inline-block hero-word"
             >
               Interfaces
             </span>

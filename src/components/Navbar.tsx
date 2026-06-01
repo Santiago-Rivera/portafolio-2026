@@ -70,10 +70,7 @@ const Navbar = () => {
             <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground text-xs font-bold transition-transform duration-200 group-hover:scale-105">
               {initials}
             </div>
-            <span
-              className="hidden font-semibold text-foreground sm:block"
-              style={{ fontFamily: "'Syne', sans-serif" }}
-            >
+            <span className="hidden font-semibold text-foreground sm:block font-syne">
               {personalInfo.name.split(" ")[0]}
             </span>
           </button>
@@ -133,19 +130,17 @@ const Navbar = () => {
           >
             <ul className="flex flex-col gap-1 p-4">
               {links.map((l, i) => (
-                <motion.li
-                  key={l.href}
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.05 }}
-                >
-                  <button
+                <li key={l.href}>
+                  <motion.button
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.05 }}
                     onClick={() => scrollTo(l.href)}
                     className="w-full rounded-lg px-4 py-2.5 text-left text-sm text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
                   >
                     {l.label}
-                  </button>
-                </motion.li>
+                  </motion.button>
+                </li>
               ))}
               <li className="mt-2 border-t border-border pt-3">
                 <a

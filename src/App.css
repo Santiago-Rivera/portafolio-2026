@@ -40,3 +40,22 @@
 .read-the-docs {
   color: #888;
 }
+
+/* Typography */
+.font-syne {
+  font-family: "Syne", sans-serif;
+}
+
+/* Hero Section */
+.hero-grid {
+  background-image: linear-gradient(
+    hsl(var(--foreground)) 1px,
+    transparent 1px
+  ),
+  linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+.hero-word {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
