@@ -61,7 +61,7 @@ export const projects: Project[] = [
     image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=600&h=400&fit=crop",
     technologies: ["React", "TypeScript", "Supabase", "Tailwind CSS"],
     type: "Web",
-    repoUrl: "https://github.com/Santiago-Rivera",
+    repoUrl: "https://panaderia-delicias.vercel.app/",
   },
   {
     title: "Kanban Task Manager",
